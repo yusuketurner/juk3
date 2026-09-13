@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>東浦町の学習塾 煌めき学舎 東浦教室｜学習塾・そろばん・英語の通い放題</title>
+<meta name="description" content="愛知県知多郡東浦町の学習塾「煌めき学舎 東浦教室」。小学生・中学生・高校生の個別指導、そろばん、英語。自分のペースで何度でも通える通い放題プラン。無料体験を受付中です。">
+<meta property="og:title" content="東浦町の学習塾 煌めき学舎 東浦教室">
+<meta property="og:description" content="学ぶって、おもしろい。小さな「できた！」の積み重ねが、大きな未来につながる。">
+<meta property="og:type" content="website">
+<script>document.documentElement.className='js';</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Quicksand:wght@500;600;700&family=Yomogi&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+/* ===================================================================
+   煌めき学舎 東浦教室 — トップページ
+   =================================================================== */
+
+:root{
+  /* 色 */
+  --cream:#F6F5F0;
+  --white:#FEFEFC;
+  --ink:#17324E;
+  --ink-soft:#31567A;
+  --body:#5C6E82;
+  --yellow:#FDDB60;
+  --yellow-d:#F0C441;
+  --badge:#FED76C;
+  --pink:#FA9A9E;
+  --teal:#3FBBB1;
+  --green:#68BC9B;
+  --sky:#F0F9FE;
+  --mint:#E8F9EA;
+  --note-y:#FEF9DA;
+  --note-m:#D5F7F1;
+  --note-b:#D6EAFE;
+  --note-p:#FDECEC;
+
+  /* 字 */
+  --maru:'Zen Maru Gothic', 'Hiragino Maru Gothic ProN', sans-serif;
+  --sans:'Noto Sans JP', sans-serif;
+  --hand:'Yomogi', 'Zen Maru Gothic', cursive;
+  --en:'Quicksand', sans-serif;
+
+  /* 動き */
+  --ease:cubic-bezier(.22,.9,.28,1);
+  --pop:cubic-bezier(.34,1.56,.64,1);
+
+  --pad:clamp(20px, 5vw, 48px);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--sans);
+  color:var(--body);
+  background:var(--white);
+  line-height:1.95;
+  font-size:15px;
+  letter-spacing:.03em;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+ul{list-style:none}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:4px}
+
+.wrap{width:min(1180px, 100% - var(--pad)*2);margin-inline:auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+
+/* 英字ラベル */
+.en-label{
+  font-family:var(--en);font-weight:700;font-size:12px;
+  letter-spacing:.3em;color:var(--teal);text-align:center;
+  display:block;margin-bottom:14px;
+}
+
+/* 見出し */
+h1,h2,h3{font-family:var(--maru);color:var(--ink);font-weight:700;line-height:1.45;letter-spacing:.02em}
+.sec-title{font-size:clamp(26px,3.4vw,40px);text-align:center}
+.sec-lead{text-align:center;font-size:clamp(13.5px,1.25vw,16px);margin-top:18px}
+
+/* ふせん（手書き文字） */
+.note{
+  font-family:var(--hand);color:var(--ink-soft);
+  font-size:clamp(12px,1.25vw,16px);line-height:1.85;
+  padding:16px 20px;display:inline-block;
+  transform:rotate(var(--rot,-3deg));
+  transition:transform .45s var(--pop);
+}
+.note:hover{transform:rotate(calc(var(--rot,-3deg) * -.4)) translateY(-4px)}
+.note--y{background:var(--note-y);border-radius:6px 14px 8px 12px}
+.note--m{background:var(--note-m);border-radius:14px 6px 12px 8px}
+.note--b{background:var(--note-b);border-radius:8px 12px 6px 14px}
+/* 線で囲っただけの手書きメモ（かぎかっこ） */
+.memo{
+  font-family:var(--hand);color:var(--ink-soft);
+  font-size:clamp(12px,1.2vw,15px);line-height:1.8;
+  position:relative;padding:6px 16px;display:inline-block;
+  transform:rotate(var(--rot,-4deg));
+}
+.memo::before,.memo::after{
+  content:'';position:absolute;top:2px;bottom:2px;width:9px;
+  border:2px solid var(--teal);border-radius:2px;
+}
+.memo::before{left:0;border-right:0}
+.memo::after{right:0;border-left:0}
+
+/* ボタン */
+.btn{
+  display:inline-flex;align-items:center;gap:12px;
+  font-family:var(--maru);font-weight:700;color:var(--ink);
+  background:var(--yellow);
+  padding:16px 34px;border-radius:999px;
+  box-shadow:0 4px 0 var(--yellow-d);
+  transition:transform .2s var(--ease), box-shadow .2s var(--ease);
+}
+.btn:hover{transform:translateY(3px);box-shadow:0 1px 0 var(--yellow-d)}
+.btn .arw{transition:transform .3s var(--ease)}
+.btn:hover .arw{transform:translateX(5px)}
+.btn--line{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-family:var(--maru);font-weight:700;color:var(--ink);
+  border:2px solid var(--ink-soft);background:transparent;
+  padding:14px 34px;border-radius:999px;box-shadow:none;
+  transition:background .25s var(--ease), color .25s var(--ease);
+}
+.btn--line:hover{background:var(--ink);color:#fff;transform:none;border-color:var(--ink)}
+
+/* =========================== 0. ローディング ======================= */
+.loader{
+  position:fixed;inset:0;z-index:999;background:var(--cream);
+  display:none;place-items:center;text-align:center;
+}
+.js .loader{display:grid}
+.loader.is-out{animation:loaderOut .5s var(--ease) forwards}
+@keyframes loaderOut{to{opacity:0;visibility:hidden}}
+.loader__map{width:min(260px,52vw);margin-inline:auto}
+.loader__map path{
+  fill:none;stroke:var(--teal);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:900;stroke-dashoffset:900;
+  animation:draw 1.25s var(--ease) .15s forwards;
+}
+@keyframes draw{to{stroke-dashoffset:0}}
+.loader__star{opacity:0;animation:popIn .5s var(--pop) 1.2s forwards}
+@keyframes popIn{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:scale(1)}}
+.loader__txt{
+  font-family:var(--maru);font-weight:700;color:var(--ink);
+  font-size:clamp(18px,2.6vw,26px);margin-top:24px;
+  opacity:0;animation:fadeUp .5s var(--ease) 1.35s forwards;
+}
+.loader__place{font-family:var(--hand);font-size:13px;color:var(--teal);margin-top:8px;
+  opacity:0;animation:fadeUp .5s var(--ease) 1.5s forwards}
+.loader__skip{
+  position:absolute;bottom:34px;left:50%;transform:translateX(-50%);
+  font-size:11.5px;letter-spacing:.18em;color:var(--body);opacity:.65;
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* =========================== 1. ヘッダー ========================== */
+.hd{
+  position:fixed;top:0;left:0;right:0;z-index:80;
+  transition:background .3s var(--ease), box-shadow .3s var(--ease), padding .3s var(--ease);
+  padding:14px 0;
+}
+.hd.is-stuck{background:rgba(254,254,252,.94);backdrop-filter:blur(10px);
+  box-shadow:0 2px 22px rgba(23,50,78,.07);padding:8px 0}
+.hd__in{display:flex;align-items:center;gap:clamp(16px,3vw,40px)}
+
+.logo{display:flex;flex-direction:column;align-items:center;line-height:1.1;flex-shrink:0}
+.logo__main{font-family:var(--maru);font-weight:900;font-size:clamp(19px,2vw,25px);color:var(--ink);letter-spacing:.06em}
+.logo__main i{font-style:normal;color:var(--green)}
+.logo__sub{font-family:var(--maru);font-size:10.5px;color:var(--body);letter-spacing:.28em;margin-top:3px}
+
+.gnav{display:flex;gap:clamp(10px,1.7vw,26px);margin-left:auto}
+.gnav a{
+  font-family:var(--maru);font-weight:500;font-size:13.5px;color:var(--ink);
+  position:relative;padding:4px 2px;white-space:nowrap;
+}
+.gnav a::after{
+  content:'';position:absolute;left:0;right:0;bottom:-2px;height:3px;
+  background:var(--yellow);border-radius:3px;
+  transform:scaleX(0);transform-origin:left;transition:transform .28s var(--ease);
+}
+.gnav a:hover::after{transform:scaleX(1)}
+
+.hd__cta{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--yellow);color:var(--ink);font-family:var(--maru);font-weight:700;
+  font-size:13px;padding:11px 22px;border-radius:999px;white-space:nowrap;
+  box-shadow:0 3px 0 var(--yellow-d);transition:transform .2s var(--ease),box-shadow .2s var(--ease);
+}
+.hd__cta:hover{transform:translateY(2px);box-shadow:0 1px 0 var(--yellow-d)}
+
+.burger{display:none;width:44px;height:44px;margin-left:auto;position:relative;z-index:92}
+.burger span,.burger::before,.burger::after{
+  content:'';position:absolute;left:11px;width:22px;height:2.5px;border-radius:2px;
+  background:var(--ink);transition:transform .3s var(--ease),opacity .2s;
+}
+.burger::before{top:15px}
+.burger span{top:21px}
+.burger::after{top:27px}
+.burger[aria-expanded="true"]::before{transform:translateY(6px) rotate(45deg)}
+.burger[aria-expanded="true"] span{opacity:0}
+.burger[aria-expanded="true"]::after{transform:translateY(-6px) rotate(-45deg)}
+
+/* モバイルメニュー */
+.mnav{
+  position:fixed;inset:0;z-index:88;background:var(--cream);
+  display:flex;flex-direction:column;justify-content:center;gap:4px;
+  padding:80px var(--pad) 120px;
+  opacity:0;visibility:hidden;transform:translateY(-12px);
+  transition:opacity .3s var(--ease),transform .3s var(--ease),visibility .3s;
+  overflow-y:auto;
+}
+.mnav.is-open{opacity:1;visibility:visible;transform:none}
+.mnav a{font-family:var(--maru);font-weight:700;font-size:18px;color:var(--ink);padding:12px 0;
+  border-bottom:1.5px dashed rgba(23,50,78,.13)}
+.mnav .btn{margin-top:26px;justify-content:center}
+.mnav__il{position:absolute;right:-10px;bottom:-10px;width:130px;opacity:.85;pointer-events:none}
+
+/* 右端の縦タブ / モバイル固定バー */
+.tabs{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:70;display:flex;flex-direction:column;gap:8px}
+.tab{
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--maru);font-weight:700;font-size:13px;
+  letter-spacing:.14em;color:var(--ink);background:var(--yellow);
+  padding:20px 11px;border-radius:12px 0 0 12px;
+  box-shadow:-3px 3px 12px rgba(23,50,78,.12);
+  transition:padding-right .25s var(--ease);
+}
+.tab span{display:block;width:1em;line-height:1.45;word-break:break-all;text-align:center}
+.tab:hover{padding-right:19px}
+.tab--sns{background:var(--note-m)}
+.mbar{display:none}
+
+/* =========================== 2. ヒーロー ========================== */
+.hero{position:relative;background:var(--cream);padding-top:104px;overflow:hidden}
+.hero__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);align-items:center;
+  min-height:min(78vh,660px)}
+.hero__copy{position:relative;z-index:3;padding:12px 0 clamp(104px,11vw,150px)}
+.hero__mark{position:absolute;left:-14px;top:-30px;width:54px;color:var(--ink);opacity:.85}
+.hero h1{
+  font-size:clamp(34px,6vw,72px);line-height:1.36;letter-spacing:.01em;
+  text-shadow:0 2px 0 rgba(254,254,252,.8);
+}
+.hero h1 span{display:block}
+.hero__sub{
+  font-family:var(--maru);font-weight:500;color:var(--ink-soft);
+  font-size:clamp(13px,1.45vw,18px);line-height:2;margin-top:26px;
+}
+.hero__en{position:relative;z-index:3;font-family:var(--en);font-weight:700;
+  font-size:clamp(13px,1.3vw,17px);color:var(--teal);letter-spacing:.12em;
+  line-height:1.5;margin-top:22px}
+.hero__book{position:absolute;left:-34px;bottom:-4px;z-index:1;width:clamp(104px,12vw,172px);
+  transform:rotate(-6deg);pointer-events:none}
+
+.hero__media{position:relative;align-self:stretch}
+.hero__photo{
+  position:absolute;inset:0 calc(var(--pad)*-1 - 50vw + 50%) 0 0;
+  border-radius:120px 0 0 110px;overflow:hidden;
+}
+.hero__photo img{width:100%;height:100%;object-fit:cover;object-position:32% 40%;
+  animation:kenburns 22s ease-in-out infinite alternate}
+@keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.07)}}
+.hero__fade{position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:linear-gradient(100deg, var(--cream) 4%, rgba(246,245,240,.55) 22%, rgba(246,245,240,0) 46%)}
+
+.hero__bubble{position:absolute;right:clamp(56px,7vw,104px);top:clamp(96px,11vw,150px);z-index:4;text-align:center}
+.hero__bubble .memo{--rot:-2deg;font-size:clamp(13px,1.5vw,19px);font-weight:700;
+  background:rgba(254,254,252,.86);border-radius:16px;padding:12px 22px;
+  backdrop-filter:blur(2px)}
+.hero__smile{width:44px;margin:12px auto 0;color:var(--ink);opacity:.85;
+  filter:drop-shadow(0 0 6px rgba(254,254,252,.95))}
+
+.hero__badge{
+  position:absolute;right:clamp(0px,3vw,40px);bottom:clamp(50px,9vw,110px);z-index:5;
+  width:clamp(112px,15vw,178px);aspect-ratio:1;border-radius:50%;
+  background:var(--badge);display:grid;place-content:center;text-align:center;
+  font-family:var(--maru);font-weight:500;color:var(--ink);
+  font-size:clamp(10.5px,1.15vw,15px);line-height:1.75;
+  box-shadow:0 10px 26px rgba(23,50,78,.14);
+  transition:transform .3s var(--pop);
+}
+.hero__badge::before{
+  content:'';position:absolute;inset:7px;border-radius:50%;
+  border:1.5px dashed rgba(254,254,252,.85);
+}
+.hero__badge:hover{transform:scale(1.05) rotate(-3deg)}
+.hero__badge b{font-weight:700;font-size:1.16em}
+.hero__badge .arw{display:block;margin:6px auto 0}
+
+.wave{display:block;width:100%;height:auto;position:relative;z-index:6;margin-top:-2px}
+
+/* =========================== 3. CONCEPT ========================== */
+.concept{background:var(--white);padding:clamp(24px,4vw,40px) 0 clamp(60px,7vw,96px);position:relative}
+.concept__in{position:relative;max-width:660px;margin-inline:auto;text-align:center;z-index:2}
+.concept h2{font-size:clamp(24px,3.5vw,42px);line-height:1.55}
+.concept__body{margin-top:26px;font-size:clamp(13px,1.2vw,15.5px)}
+.concept__il{position:absolute;bottom:0;pointer-events:none;z-index:1}
+.concept__il--l{left:2%;width:clamp(100px,13vw,180px)}
+.concept__il--r{right:2%;width:clamp(86px,11vw,150px)}
+.concept__book{position:absolute;right:15%;top:-4%;width:clamp(72px,8.4vw,120px);z-index:1;pointer-events:none}
+.concept__note{position:absolute;z-index:3}
+.concept__note--l{left:1%;top:16%}
+.concept__note--r{right:-2%;top:22%}
+.concept__note--l .memo{--rot:-5deg}
+.concept__note--r .memo{--rot:4deg}
+
+/* きらきら星 */
+.star{position:absolute;color:var(--yellow);pointer-events:none;z-index:1}
+.star--a{left:14%;top:6%;width:38px}
+.star--b{left:6%;top:44%;width:26px;color:var(--badge)}
+.star--c{right:21%;top:46%;width:28px}
+.star--d{left:22%;top:30%;width:16px;color:var(--teal)}
+
+/* =========================== 4. ギャラリー ======================== */
+.gallery{background:var(--white);padding-bottom:clamp(50px,6vw,86px);overflow:hidden}
+.gal{display:grid;gap:clamp(8px,1vw,14px);
+  grid-template-columns:repeat(12,1fr);align-items:stretch}
+.gal figure{overflow:hidden;box-shadow:0 8px 22px rgba(23,50,78,.09);
+  border-radius:16px 20px 14px 22px/20px 14px 22px 16px}
+.gal figure img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.gal figure:hover img{transform:scale(1.06)}
+.gal .g1{grid-area:1/1/2/4;aspect-ratio:11/10;transform:rotate(-1.2deg)}
+.gal .g2{grid-area:1/4/2/9;aspect-ratio:19/10;transform:rotate(.7deg)}
+.gal .g3{grid-area:1/9/2/11;aspect-ratio:1;transform:rotate(-.6deg)}
+.gal .n1{grid-area:1/11/2/13;display:grid;place-items:center;padding:4px}
+.gal .n2{grid-area:2/1/3/4;display:grid;place-items:center;padding:4px}
+.gal .g4{grid-area:2/4/3/7;aspect-ratio:11/10;transform:rotate(1deg)}
+.gal .g5{grid-area:2/7/3/10;aspect-ratio:11/10;transform:rotate(-.8deg)}
+.gal .g6{grid-area:2/10/3/13;aspect-ratio:5/4;transform:rotate(.6deg)}
+.gal .n1 .note{--rot:3deg}
+.gal .n2 .note{--rot:-3deg}
+
+/* =========================== 5. COURSE =========================== */
+.course{background:var(--white);padding:clamp(30px,4vw,56px) 0 clamp(60px,8vw,110px);position:relative}
+.course__list{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,3vw,44px);
+  margin-top:clamp(36px,5vw,64px)}
+.card{text-align:center;display:flex;flex-direction:column;align-items:center}
+.card__il{width:min(100%,300px);height:clamp(160px,17vw,215px);object-fit:contain;
+  margin-bottom:10px;transition:transform .4s var(--pop)}
+.card:hover .card__il{transform:translateY(-8px) rotate(-1.5deg)}
+.card h3{
+  font-size:clamp(20px,2.3vw,29px);display:inline-block;padding:0 10px;
+  background:linear-gradient(transparent 52%, var(--hl) 52%, var(--hl) 94%, transparent 94%);
+}
+.card__pill{
+  display:inline-block;margin-top:12px;font-family:var(--maru);font-weight:700;
+  font-size:clamp(11px,1.05vw,13px);color:var(--ink);
+  background:var(--hl);padding:5px 18px;border-radius:999px;letter-spacing:.05em;
+}
+.card p{margin-top:16px;font-size:clamp(12.5px,1.1vw,14.5px);line-height:1.95}
+.card__go{
+  margin-top:20px;width:40px;height:40px;border-radius:50%;
+  display:grid;place-items:center;color:#fff;background:var(--acc);
+  transition:transform .25s var(--pop);
+}
+.card:hover .card__go{transform:translateY(-3px) scale(1.08)}
+.card--juku{--hl:#FDDCDB;--acc:var(--pink)}
+.card--soro{--hl:#FDEEB8;--acc:#FCC94F}
+.card--eigo{--hl:#C9EFE8;--acc:var(--teal)}
+
+/* =========================== 6. 帯（写真） ======================= */
+.band{background:var(--sky);position:relative;isolation:isolate}
+.band__in{position:relative;padding:clamp(16px,3vw,32px) 0 clamp(26px,4vw,48px)}
+.band__photo{
+  position:relative;width:min(880px,84%);margin:0 auto;
+  border-radius:200px 200px 26px 26px/120px 120px 26px 26px;overflow:hidden;
+  box-shadow:0 16px 40px rgba(23,50,78,.1);
+}
+.band__photo img{width:100%;display:block}
+.band__copy{position:absolute;left:var(--pad);top:clamp(18px,6vw,72px);z-index:3;max-width:38%}
+.band__copy h2{font-size:clamp(21px,3vw,37px);line-height:1.62}
+.band__uline{width:clamp(90px,11vw,150px);margin-top:10px;color:#8CC6EE}
+.band__note{position:absolute;right:var(--pad);top:clamp(30px,8vw,96px);z-index:3;max-width:26%}
+.band__note .note{--rot:2.5deg;padding:18px 22px}
+.band__ribbon{position:absolute;right:2%;bottom:-4%;width:clamp(120px,18vw,260px);color:var(--yellow);z-index:4}
+
+/* =========================== 7. 通い放題 ========================= */
+.free{background:var(--white);padding:clamp(56px,7vw,92px) 0 clamp(52px,6vw,80px);position:relative;overflow:hidden}
+.free__grid{display:grid;grid-template-columns:.8fr minmax(0,2fr) .8fr;align-items:center;gap:clamp(10px,1.6vw,26px)}
+.free__side{display:flex;flex-direction:column}
+.free__side img{width:clamp(110px,13vw,188px);align-self:center}
+.free__side--r img{width:clamp(130px,16vw,220px)}
+.free__side .note,.free__side .memo{position:relative;z-index:2;margin-bottom:-10px}
+.free__side--l .note{align-self:flex-start;--rot:-6deg}
+.free__side--r .memo{align-self:flex-end;--rot:5deg}
+.free__main{text-align:center}
+.free__main h2{font-size:clamp(22px,2.9vw,36px);white-space:nowrap}
+.free__main p{margin-top:18px;font-size:clamp(13px,1.15vw,15.5px)}
+.free__main .btn--line{margin-top:30px}
+
+/* =========================== 8. CTA ============================= */
+.cta{padding:0 0 clamp(50px,6vw,80px);background:var(--white)}
+.cta__panel{
+  position:relative;background:var(--mint);border-radius:34px;
+  padding:clamp(40px,5.5vw,68px) clamp(20px,4vw,60px);
+  text-align:center;overflow:hidden;
+}
+.cta__panel h2{font-size:clamp(22px,3vw,36px)}
+.cta__panel p{margin-top:14px;font-size:clamp(13px,1.15vw,15.5px)}
+.cta__panel .btn{margin-top:28px;font-size:clamp(14px,1.35vw,18px);padding:18px 40px}
+.cta__il{position:absolute;bottom:0;pointer-events:none}
+.cta__il--l{left:2%;bottom:14%;width:clamp(96px,14vw,200px);transform:rotate(-4deg)}
+.cta__il--r{right:9%;bottom:0;width:clamp(76px,10vw,140px)}
+.cta__memo{position:absolute;right:1.5%;top:16%;max-width:20%}
+.cta__memo .memo{--rot:3deg}
+
+/* =========================== 9. フッター ======================== */
+.ft{background:var(--white);padding:clamp(44px,6vw,72px) 0 0;border-top:1px solid rgba(23,50,78,.07)}
+.ft__grid{display:grid;grid-template-columns:auto repeat(3,minmax(0,1fr)) auto;gap:clamp(18px,3vw,44px);align-items:start}
+.ft__logo{align-items:flex-start}
+.ft__col a{display:block;font-size:13px;padding:6px 0;color:var(--ink);transition:color .2s,transform .2s var(--ease)}
+.ft__col a:hover{color:var(--teal);transform:translateX(3px)}
+.ft__sns{display:flex;gap:12px}
+.ft__sns a{width:38px;height:38px;display:grid;place-items:center;border-radius:10px;
+  color:var(--ink);transition:background .25s,color .25s}
+.ft__sns a:hover{background:var(--ink);color:#fff}
+.ft__bar{margin-top:clamp(32px,4vw,54px);padding:20px 0 26px;border-top:1px solid rgba(23,50,78,.08);
+  display:flex;flex-wrap:wrap;gap:8px 26px;align-items:center;font-size:11.5px}
+.ft__bar .copy{margin-right:auto;letter-spacing:.04em}
+.ft__bar a{color:var(--ink-soft)}
+.ft__bar a:hover{text-decoration:underline}
+.pagetop{
+  position:fixed;right:22px;bottom:22px;z-index:60;width:52px;height:52px;border-radius:50%;
+  background:var(--ink);color:#fff;display:grid;place-items:center;
+  box-shadow:0 8px 20px rgba(23,50,78,.24);
+  opacity:0;visibility:hidden;transform:translateY(10px);
+  transition:opacity .3s,visibility .3s,transform .3s var(--ease),background .2s;
+}
+.pagetop.is-on{opacity:1;visibility:visible;transform:none}
+.pagetop:hover{background:var(--teal)}
+
+/* =========================== モーダル =========================== */
+.modal{position:fixed;inset:0;z-index:95;display:grid;place-items:center;padding:20px;
+  opacity:0;visibility:hidden;transition:opacity .28s,visibility .28s}
+.modal.is-open{opacity:1;visibility:visible}
+.modal__bg{position:absolute;inset:0;background:rgba(23,50,78,.45)}
+.modal__box{position:relative;background:var(--white);border-radius:26px;
+  width:min(460px,100%);padding:clamp(28px,4vw,42px);text-align:center;
+  box-shadow:0 24px 60px rgba(23,50,78,.3);transform:translateY(14px) scale(.97);
+  transition:transform .3s var(--pop);max-height:90vh;overflow:auto}
+.modal.is-open .modal__box{transform:none}
+.modal__box h2{font-size:22px}
+.modal__box p{font-size:13px;margin-top:10px}
+.modal__list{display:grid;gap:12px;margin-top:24px}
+.modal__list a{display:flex;align-items:center;justify-content:center;gap:10px;
+  font-family:var(--maru);font-weight:700;color:var(--ink);
+  border:2px solid rgba(23,50,78,.14);border-radius:14px;padding:15px;
+  transition:border-color .2s,background .2s}
+.modal__list a:hover{border-color:var(--teal);background:var(--note-m)}
+.modal__note{font-size:11.5px;margin-top:18px;line-height:1.8}
+.modal__close{position:absolute;right:12px;top:10px;width:40px;height:40px;font-size:24px;
+  color:var(--ink);border-radius:50%}
+.modal__close:hover{background:rgba(23,50,78,.07)}
+
+/* ===================== 表示アニメーション ====================== */
+.js [data-rv]{opacity:0;transform:translateY(22px);
+  transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:var(--d,0s)}
+.js [data-rv].is-in{opacity:1;transform:none}
+.float{animation:float var(--fd,7s) ease-in-out infinite;animation-delay:var(--fdl,0s)}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.sway{animation:sway var(--fd,9s) ease-in-out infinite}
+@keyframes sway{0%,100%{transform:rotate(-2.5deg)}50%{transform:rotate(2.5deg)}}
+
+/* =========================== 素材の注記 ========================= */
+.imgnote{
+  text-align:center;font-size:11px;color:var(--body);opacity:.65;
+  padding:clamp(26px,3.5vw,44px) var(--pad) 0;line-height:1.8;
+}
+
+/* =========================== レスポンシブ ======================= */
+@media (max-width:1000px){
+  .gnav,.hd__cta{display:none}
+  .burger{display:block}
+  .tabs{display:none}
+  .mbar{
+    display:grid;grid-template-columns:1fr auto;gap:10px;
+    position:fixed;left:0;right:0;bottom:0;z-index:75;
+    padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+    background:rgba(254,254,252,.95);backdrop-filter:blur(8px);
+    box-shadow:0 -3px 18px rgba(23,50,78,.1);
+  }
+  .mbar .btn{justify-content:center;width:100%;padding:14px 20px;font-size:14px}
+  .mbar__sns{width:52px;border-radius:999px;background:var(--note-m);display:grid;place-items:center;color:var(--ink)}
+  .pagetop{bottom:86px;width:44px;height:44px}
+  body{padding-bottom:74px}
+
+  .hero__grid{grid-template-columns:1fr;min-height:0}
+  .hero__copy{padding:6px 0 clamp(180px,42vw,300px)}
+  .hero__media{position:absolute;inset:auto 0 0 0;height:clamp(200px,46vw,330px)}
+  .hero__photo{inset:0;border-radius:70px 0 0 0;left:22%}
+  .hero__fade{background:linear-gradient(180deg,var(--cream) 0%,rgba(246,245,240,0) 30%)}
+  .hero__badge{right:auto;left:2%;bottom:4%}
+  .hero__bubble{right:2%;top:auto;bottom:38%}
+  .hero__book{left:auto;right:4%;bottom:auto;top:-8px;width:92px;opacity:.55}
+
+  .band__copy,.band__note{position:static;max-width:none;text-align:center;margin-bottom:20px}
+  .band__note{margin:20px 0 0}
+  .band__uline{margin-inline:auto}
+  .band__photo{width:calc(100% - var(--pad)*2);border-radius:26px}
+  .band__in{padding:clamp(30px,6vw,50px) 0}
+  .band__ribbon{display:none}
+
+  .free__grid{grid-template-columns:1fr 1fr;gap:24px}
+  .free__main h2{white-space:normal}
+  .free__main{grid-column:1/-1;order:-1}
+  .cta__memo{display:none}
+  .ft__grid{grid-template-columns:repeat(2,1fr);gap:24px}
+  .ft__logo{grid-column:1/-1}
+  .ft__sns{grid-column:1/-1;margin-top:6px}
+}
+
+@media (max-width:680px){
+  body{font-size:14px;line-height:1.9}
+  .course__list{grid-template-columns:1fr;gap:44px}
+  .card__il{width:min(76%,260px)}
+  .gal{grid-template-columns:repeat(6,1fr)}
+  .gal .g1{grid-column:span 3;grid-row:1}
+  .gal .g2{grid-column:span 3;grid-row:1;aspect-ratio:11/10}
+  .gal .g3{grid-column:span 2;grid-row:2}
+  .gal .g4{grid-column:span 4;grid-row:2;grid-column-start:3;aspect-ratio:16/11}
+  .gal .g5{grid-column:span 3;grid-row:3}
+  .gal .g6{grid-column:span 3;grid-row:3;aspect-ratio:11/10}
+  .gal .n1{grid-column:span 6;grid-row:4;padding:8px 0}
+  .gal .n2{grid-column:span 6;grid-row:5;padding:0 0 8px}
+  .concept__il--l{width:88px;left:-8px;opacity:.9}
+  .concept__il--r{width:74px;right:-4px;opacity:.9}
+  .concept__book{width:64px;right:2%;top:-2%}
+  .concept__note--l{left:-2%;top:auto;bottom:8%}
+  .concept__note--r{right:-2%;top:auto;bottom:8%}
+  .concept__in{padding-bottom:120px}
+  .star--a{left:3%;top:1%;width:24px}
+  .star--b{left:-1%;top:17%;width:20px}
+  .star--c{right:1%;top:15%;width:22px}
+  .star--d{display:none}
+  .free__side img{width:clamp(96px,30vw,150px)}
+  .cta__il--l{width:88px;bottom:auto;top:-6px;left:-2%;opacity:.5}
+  .cta__il--r{width:70px;right:-2%;opacity:.6}
+  .cta__panel{border-radius:24px}
+  .ft__grid{grid-template-columns:1fr 1fr}
+}
+
+/* ===================== 動きを減らす設定 ======================== */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;scroll-behavior:auto !important}
+  .js .loader{display:none}
+  .js [data-rv]{opacity:1;transform:none}
+}
+
+</style>
+</head>
+<body>
+
+<!-- ========== 共通のSVG定義 ========== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-star" viewBox="0 0 48 48">
+    <path d="M24 4.5 Q27 5 29.5 16.5 Q30 19 42 21.5 Q44 22.5 34 30 Q32 31.5 35.5 42.5 Q35 44.5 25 38 Q23.5 37 13 43 Q11 42 15 30.5 Q15 29 5 21.5 Q5 19.5 17.5 17 Q20 16 24 4.5 Z"
+      fill="currentColor" stroke="#2B2B2B" stroke-width="1.6" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-arrow" viewBox="0 0 26 12">
+    <path d="M1 6 H23 M18 1.5 L23.5 6 L18 10.5" fill="none" stroke="currentColor"
+      stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-smile" viewBox="0 0 44 44">
+    <circle cx="22" cy="22" r="19.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+    <path d="M15 18.5 Q15.5 16 16.5 18.5 M27 18.5 Q27.5 16 28.5 18.5" fill="none"
+      stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M14.5 26 Q22 33 29.5 26" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="i-mail" viewBox="0 0 22 18">
+    <rect x="1" y="1.5" width="20" height="15" rx="3" fill="none" stroke="currentColor" stroke-width="1.7"/>
+    <path d="M2.5 4.5 L11 11 L19.5 4.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="i-pencil" viewBox="0 0 20 20">
+    <path d="M3 17 L4.5 12.5 L14 3 Q15.5 1.5 17 3 Q18.5 4.5 17 6 L7.5 15.5 Z"
+      fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24">
+    <rect x="3" y="3" width="18" height="18" rx="5.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+    <circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+    <circle cx="17.3" cy="6.8" r="1.2" fill="currentColor"/>
+  </symbol>
+  <symbol id="i-yt" viewBox="0 0 24 24">
+    <rect x="2" y="5" width="20" height="14" rx="4.5" fill="currentColor"/>
+    <path d="M10 9.2 L15.5 12 L10 14.8 Z" fill="#FEFEFC"/>
+  </symbol>
+  <symbol id="i-up" viewBox="0 0 22 22">
+    <path d="M11 17.5 V5 M5.5 10 L11 4.5 L16.5 10" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-phone" viewBox="0 0 22 22">
+    <path d="M4 3.5 H8 L9.5 8 L7.2 9.6 Q9 13.6 12.4 15.4 L14 13 L18.5 14.5 V18.5
+      Q18.5 19.5 17.3 19.4 Q3 18 2.6 4.7 Q2.6 3.5 4 3.5 Z"
+      fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-chat" viewBox="0 0 22 22">
+    <path d="M11 3 Q19.5 3 19.5 9.3 Q19.5 15.6 11 15.6 Q9.3 15.6 7.9 15.3 L3.6 18.2 L4.6 14.2
+      Q2.5 12.3 2.5 9.3 Q2.5 3 11 3 Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-tick" viewBox="0 0 54 40">
+    <path d="M4 22 L1.5 12 M12 13 L7 5 M22 8.5 L21 1.5" fill="none" stroke="currentColor"
+      stroke-width="2.6" stroke-linecap="round"/>
+  </symbol>
+</svg>
+
+<!-- ========== 0. ローディング ========== -->
+<div class="loader" id="loader">
+  <div>
+    <svg class="loader__map" viewBox="0 0 220 180" aria-hidden="true">
+      <path d="M58 16 Q92 6 118 20 Q146 34 152 62 Q158 88 176 100 Q192 111 182 132
+               Q172 152 142 156 Q112 160 92 150 Q70 139 52 146 Q30 154 24 132
+               Q19 112 34 96 Q49 80 42 56 Q36 30 58 16 Z"/>
+      <g class="loader__star">
+        <svg x="88" y="76" width="34" height="34" viewBox="0 0 48 48" style="color:#FDDB60">
+          <use href="#i-star"/>
+        </svg>
+      </g>
+    </svg>
+    <p class="loader__txt">学ぶって、おもしろい。</p>
+    <p class="loader__place">愛知県知多郡 東浦町</p>
+  </div>
+  <p class="loader__skip">画面をタップでスキップ</p>
+</div>
+
+<!-- ========== 1. ヘッダー ========== -->
+<header class="hd" id="hd">
+  <div class="hd__in wrap">
+    <a class="logo" href="#top" aria-label="煌めき学舎 東浦教室 トップへ">
+      <span class="logo__main"><i>煌</i>めき学舎</span>
+      <span class="logo__sub">東浦教室</span>
+    </a>
+    <nav class="gnav" aria-label="メインメニュー">
+      <a href="#top">トップ</a>
+      <a href="#concept">私たちについて</a>
+      <a href="#course">学習塾</a>
+      <a href="#course">そろばん</a>
+      <a href="#course">英語</a>
+      <a href="#free">料金</a>
+      <a href="#concept">先生</a>
+      <a href="#footer">アクセス</a>
+      <a href="#footer">ブログ</a>
+    </nav>
+    <button class="hd__cta" type="button" data-modal>
+      <svg width="19" height="15" aria-hidden="true"><use href="#i-mail"/></svg>
+      無料体験・お問い合わせ
+    </button>
+    <button class="burger" id="burger" type="button" aria-label="メニューを開く"
+      aria-expanded="false" aria-controls="mnav"><span></span></button>
+  </div>
+</header>
+
+<nav class="mnav" id="mnav" aria-label="モバイルメニュー">
+  <a href="#top">トップ</a>
+  <a href="#concept">私たちについて</a>
+  <a href="#course">学習塾・そろばん・英語</a>
+  <a href="#free">料金</a>
+  <a href="#concept">先生</a>
+  <a href="#footer">アクセス</a>
+  <a href="#footer">ブログ</a>
+  <button class="btn" type="button" data-modal>
+    無料体験・お問い合わせ
+    <svg class="arw" width="24" height="11" aria-hidden="true"><use href="#i-arrow"/></svg>
+  </button>
+  <img class="mnav__il" src="assets/il-boy-wave.png" alt="" aria-hidden="true">
+</nav>
+
+<!-- 画面右端の縦タブ（PC） -->
+<div class="tabs">
+  <button class="tab" type="button" data-modal><span>無料体験</span></button>
+  <a class="tab tab--sns" href="#footer"><span>SNS</span></a>
+</div>
+
+<main id="top">
+
+<!-- ========== 2. ヒーロー ========== -->
+<section class="hero">
+  <div class="hero__grid wrap">
+    <div class="hero__copy">
+      <svg class="hero__mark" viewBox="0 0 54 40" aria-hidden="true"><use href="#i-tick"/></svg>
+      <h1>
+        <span>学ぶって、</span>
+        <span>おもしろい。</span>
+      </h1>
+      <p class="hero__sub">小さな「できた！」の積み重ねが、<br>大きな未来につながる。</p>
+      <p class="hero__en">Small Steps<br>Big Future</p>
+      <img class="hero__book float" style="--fd:8s" src="assets/il-book-open.png" alt="" aria-hidden="true">
+    </div>
+
+    <div class="hero__media">
+      <div class="hero__photo">
+        <img src="assets/photo-hero.jpg" alt="授業中に顔を上げて笑う小学生の男の子" width="908" height="580">
+      </div>
+      <div class="hero__fade"></div>
+    </div>
+  </div>
+
+  <div class="hero__bubble">
+    <span class="memo">やれば<br>できる！</span>
+    <svg class="hero__smile" viewBox="0 0 44 44" aria-hidden="true"><use href="#i-smile"/></svg>
+  </div>
+
+  <button class="hero__badge" type="button" data-modal>
+    <span>まずは<br><b>無料体験</b>から<br>はじめよう！
+      <svg class="arw" width="26" height="12" aria-hidden="true"><use href="#i-arrow"/></svg>
+    </span>
+  </button>
+
+  <svg class="wave" viewBox="0 0 1440 78" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 40 Q200 2 470 22 Q760 44 1010 14 Q1240 -12 1440 26 L1440 78 L0 78 Z" fill="#FEFEFC"/>
+  </svg>
+</section>
+
+<!-- ========== 3. CONCEPT ========== -->
+<section class="concept" id="concept">
+  <div class="wrap" style="position:relative">
+    <svg class="star star--a float" style="--fd:6.5s" viewBox="0 0 48 48" aria-hidden="true"><use href="#i-star"/></svg>
+    <svg class="star star--b float" style="--fd:8s;--fdl:.6s" viewBox="0 0 48 48" aria-hidden="true"><use href="#i-star"/></svg>
+    <svg class="star star--c float" style="--fd:7.4s;--fdl:.3s" viewBox="0 0 48 48" aria-hidden="true"><use href="#i-star"/></svg>
+    <svg class="star star--d float" style="--fd:5.8s" viewBox="0 0 48 48" aria-hidden="true"><use href="#i-star"/></svg>
+
+    <div class="concept__note concept__note--l" data-rv><span class="memo">できるを<br>ふやそう！</span></div>
+    <div class="concept__note concept__note--r" data-rv style="--d:.1s"><span class="memo">未来は<br>きっとおもしろい</span></div>
+
+    <img class="concept__il concept__il--l float" style="--fd:7s" src="assets/il-girl-ruler.png" alt="" aria-hidden="true">
+    <img class="concept__book sway" style="--fd:10s" src="assets/il-book-open.png" alt="" aria-hidden="true">
+    <img class="concept__il concept__il--r float" style="--fd:6.2s;--fdl:.4s" src="assets/il-girl-cheer.png" alt="" aria-hidden="true">
+
+    <div class="concept__in">
+      <span class="en-label" data-rv>CONCEPT</span>
+      <h2 class="sec-title" data-rv style="--d:.08s">一人ひとりのペースで、<br>一歩ずつ。</h2>
+      <p class="concept__body" data-rv style="--d:.16s">
+        煌めき学舎は、勉強を「やらされるもの」ではなく<br>
+        「やってみたい」に変える場所です。<br>
+        子どもたちの個性に寄り添い、学ぶ楽しさを育てます。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 4. ギャラリー ========== -->
+<section class="gallery" aria-label="教室のようす">
+  <div class="wrap gal">
+    <figure class="g1" data-rv><img src="assets/photo-01.jpg" alt="ノートに鉛筆で書き込む女の子"></figure>
+    <figure class="g2" data-rv style="--d:.08s"><img src="assets/photo-02.jpg" alt="前を向いて授業を聞く子どもたち"></figure>
+    <figure class="g3" data-rv style="--d:.16s"><img src="assets/photo-03.jpg" alt="ほおづえをついて笑うめがねの男の子"></figure>
+    <div class="n1" data-rv style="--d:.24s">
+      <span class="note note--y">今日の<br>がんばりが、<br>あしたの自信に。
+        <svg class="star" style="position:static;display:block;width:26px;margin-top:8px" viewBox="0 0 48 48" aria-hidden="true"><use href="#i-star"/></svg>
+      </span>
+    </div>
+    <div class="n2" data-rv>
+      <span class="note note--m">好きから<br>始まる<br>学びがある。
+        <svg class="star" style="position:static;display:block;width:26px;margin-top:8px" viewBox="0 0 48 48" aria-hidden="true"><use href="#i-star"/></svg>
+      </span>
+    </div>
+    <figure class="g4" data-rv style="--d:.08s"><img src="assets/photo-04.jpg" alt="うれしそうに顔を上げる男の子"></figure>
+    <figure class="g5" data-rv style="--d:.16s"><img src="assets/photo-05.jpg" alt="机の上のノートと鉛筆"></figure>
+    <figure class="g6" data-rv style="--d:.24s"><img src="assets/photo-06.jpg" alt="話しながら学び合う子どもたち"></figure>
+  </div>
+</section>
+
+<!-- ========== 5. COURSE ========== -->
+<section class="course" id="course">
+  <div class="wrap">
+    <span class="en-label" data-rv>COURSE</span>
+    <h2 class="sec-title" data-rv style="--d:.08s">選べる3つの学び</h2>
+    <p class="sec-lead" data-rv style="--d:.16s">興味・目標に合わせて、楽しく学べるコースをご用意しています。</p>
+
+    <div class="course__list">
+      <article class="card card--juku" data-rv>
+        <img class="card__il" src="assets/il-course-juku.png" alt="本を開いて読む女の子のイラスト">
+        <h3>学習塾</h3>
+        <span class="card__pill">小学生・中学生・高校生</span>
+        <p>「わかった！」が増える<br>自分で学ぶ力を育てます。</p>
+        <a class="card__go" href="#free" aria-label="学習塾のコースを見る">
+          <svg class="arw" width="22" height="10" aria-hidden="true"><use href="#i-arrow"/></svg>
+        </a>
+      </article>
+
+      <article class="card card--soro" data-rv style="--d:.1s">
+        <img class="card__il" src="assets/il-course-soro.png" alt="そろばんをはじく男の子のイラスト">
+        <h3>そろばん</h3>
+        <span class="card__pill">計算力・集中力・やり抜く力</span>
+        <p>数字と仲良くなり<br>一生の力を育てます。</p>
+        <a class="card__go" href="#free" aria-label="そろばんのコースを見る">
+          <svg class="arw" width="22" height="10" aria-hidden="true"><use href="#i-arrow"/></svg>
+        </a>
+      </article>
+
+      <article class="card card--eigo" data-rv style="--d:.2s">
+        <img class="card__il" src="assets/il-course-eigo.png" alt="地球儀とアルファベットに囲まれた女の子のイラスト">
+        <h3>英語</h3>
+        <span class="card__pill">キッズ・中高生・大人</span>
+        <p>聞く・話す・伝える力で<br>世界がぐっと近くなる。</p>
+        <a class="card__go" href="#free" aria-label="英語のコースを見る">
+          <svg class="arw" width="22" height="10" aria-hidden="true"><use href="#i-arrow"/></svg>
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 6. 帯（写真） ========== -->
+<section class="band" aria-label="学びでひろがる、新しい景色。">
+  <svg class="wave" viewBox="0 0 1440 72" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 0 L1440 0 L1440 30 Q1180 66 900 42 Q620 18 340 44 Q170 60 0 34 Z" fill="#FEFEFC"/>
+  </svg>
+
+  <div class="band__in">
+    <div class="band__copy" data-rv>
+      <h2>学びで<br>ひろがる、<br>新しい景色。</h2>
+      <svg class="band__uline" viewBox="0 0 150 12" aria-hidden="true">
+        <path d="M3 7 Q40 1.5 76 6 Q112 10.5 147 4.5" fill="none" stroke="currentColor"
+          stroke-width="5" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <div class="band__photo" data-rv style="--d:.1s">
+      <img src="assets/photo-band.jpg" alt="教室で笑顔を見せる女の子" width="1100" height="490">
+    </div>
+
+    <div class="band__note" data-rv style="--d:.2s">
+      <span class="note note--b">夢中に<br>なれる<br>場所がある。</span>
+    </div>
+
+    <svg class="band__ribbon" viewBox="0 0 260 90" aria-hidden="true">
+      <path d="M2 62 Q70 26 130 54 Q160 68 178 56 Q196 44 184 30 Q172 17 160 32
+               Q150 45 168 58 Q196 76 258 40" fill="none" stroke="currentColor"
+        stroke-width="6" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <svg class="wave" viewBox="0 0 1440 72" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 46 Q210 10 480 32 Q760 55 1010 26 Q1230 2 1440 38 L1440 72 L0 72 Z" fill="#FEFEFC"/>
+  </svg>
+</section>
+
+<!-- ========== 7. 通い放題 ========== -->
+<section class="free" id="free">
+  <div class="wrap free__grid">
+    <div class="free__side free__side--l" data-rv>
+      <span class="note note--y">好きな日に<br>おいで！</span>
+      <img class="float" style="--fd:6.6s" src="assets/il-boy-wave.png" alt="ランドセルを背負って手を振る男の子のイラスト">
+    </div>
+
+    <div class="free__main">
+      <h2 data-rv>通い放題で、もっと伸びる。</h2>
+      <p data-rv style="--d:.08s">
+        自分のペースで何度でも通える「通い放題プラン」で、<br>
+        わからないままにしない学びを実現します。
+      </p>
+      <a class="btn--line" href="#cta" data-rv style="--d:.16s">
+        料金プランを見る
+        <svg class="arw" width="24" height="11" aria-hidden="true"><use href="#i-arrow"/></svg>
+      </a>
+    </div>
+
+    <div class="free__side free__side--r" data-rv style="--d:.1s">
+      <span class="memo">安心して<br>通える！</span>
+      <img class="float" style="--fd:8.4s;--fdl:.5s" src="assets/il-school.png" alt="教室の建物と木と車のイラスト">
+    </div>
+  </div>
+</section>
+
+<!-- ========== 8. CTA ========== -->
+<section class="cta" id="cta">
+  <div class="wrap">
+    <div class="cta__panel">
+      <img class="cta__il cta__il--l float" style="--fd:7.6s" src="assets/il-book-pencil.png" alt="" aria-hidden="true">
+      <img class="cta__il cta__il--r float" style="--fd:6.4s;--fdl:.4s" src="assets/il-girl-fist.png" alt="" aria-hidden="true">
+      <div class="cta__memo"><span class="memo">はじめの<br>一歩を、<br>ここから！</span></div>
+
+      <h2 data-rv>まずは、無料体験へ</h2>
+      <p data-rv style="--d:.08s">教室の雰囲気・授業の様子をぜひ体験してください。</p>
+      <button class="btn" type="button" data-modal data-rv style="--d:.16s">
+        <svg width="22" height="18" aria-hidden="true"><use href="#i-mail"/></svg>
+        無料体験・お問い合わせ
+        <svg class="arw" width="26" height="12" aria-hidden="true"><use href="#i-arrow"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ========== 9. フッター ========== -->
+<footer class="ft" id="footer">
+  <div class="wrap">
+    <div class="ft__grid">
+      <a class="logo ft__logo" href="#top">
+        <span class="logo__main"><i>煌</i>めき学舎</span>
+        <span class="logo__sub">東浦教室</span>
+      </a>
+      <nav class="ft__col" aria-label="フッターメニュー1">
+        <a href="#top">トップ</a><a href="#concept">私たちについて</a>
+        <a href="#course">学習塾</a><a href="#course">そろばん</a>
+      </nav>
+      <nav class="ft__col" aria-label="フッターメニュー2">
+        <a href="#course">英語</a><a href="#free">料金</a>
+        <a href="#concept">先生</a><a href="#footer">アクセス</a>
+      </nav>
+      <nav class="ft__col" aria-label="フッターメニュー3">
+        <a href="#footer">ブログ</a><a href="#footer">お知らせ</a>
+        <a href="#cta">無料体験・お問い合わせ</a><a href="#footer">サイトマップ</a>
+      </nav>
+      <div class="ft__sns">
+        <a href="#footer" aria-label="Instagram"><svg width="24" height="24" aria-hidden="true"><use href="#i-ig"/></svg></a>
+        <a href="#footer" aria-label="YouTube"><svg width="24" height="24" aria-hidden="true"><use href="#i-yt"/></svg></a>
+      </div>
+    </div>
+
+    <p class="imgnote">イラストは提案用のラフです。公開時はイラストレーターに発注した本番用データに差し替えます。</p>
+
+    <div class="ft__bar">
+      <span class="copy">© 2025 煌めき学舎 東浦教室 All rights reserved.</span>
+      <a href="#footer">プライバシーポリシー</a>
+      <a href="#footer">特定商取引法に基づく表記</a>
+    </div>
+  </div>
+</footer>
+
+<a class="pagetop" id="pagetop" href="#top" aria-label="ページの先頭へ戻る">
+  <svg width="22" height="22" aria-hidden="true"><use href="#i-up"/></svg>
+</a>
+
+<!-- モバイル固定バー -->
+<div class="mbar">
+  <button class="btn" type="button" data-modal>
+    <svg width="20" height="16" aria-hidden="true"><use href="#i-mail"/></svg>
+    無料体験・お問い合わせ
+  </button>
+  <a class="mbar__sns" href="#footer" aria-label="SNSを見る">
+    <svg width="22" height="22" aria-hidden="true"><use href="#i-ig"/></svg>
+  </a>
+</div>
+
+<!-- ========== 予約モーダル ========== -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal__bg" data-close></div>
+  <div class="modal__box">
+    <button class="modal__close" type="button" data-close aria-label="閉じる">×</button>
+    <h2 id="modalTitle">無料体験のお申し込み</h2>
+    <p>ご都合のよい方法でご連絡ください。<br>学年と希望のコースをお知らせいただけるとスムーズです。</p>
+    <div class="modal__list">
+      <a href="#cta"><svg width="22" height="22" aria-hidden="true"><use href="#i-chat"/></svg>LINEで申し込む</a>
+      <a href="#cta"><svg width="22" height="18" aria-hidden="true"><use href="#i-mail"/></svg>WEBフォームで申し込む</a>
+      <a href="#cta"><svg width="22" height="22" aria-hidden="true"><use href="#i-phone"/></svg>電話で申し込む</a>
+    </div>
+    <p class="modal__note">※ リンク先は未設定です。公開時にLINE公式アカウント・フォーム・電話番号を設定してください。</p>
+  </div>
+</div>
+
+<script>
+(function(){
+  var mq = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- ローディング ---- */
+  var loader = document.getElementById('loader');
+  function hideLoader(){
+    if(!loader || loader.dataset.done) return;
+    loader.dataset.done = '1';
+    loader.classList.add('is-out');
+    setTimeout(function(){ loader.style.display = 'none'; }, 500);
+  }
+  if(mq){ hideLoader(); }
+  else {
+    setTimeout(hideLoader, 2300);
+    loader && loader.addEventListener('click', hideLoader);
+  }
+
+  /* ---- ヘッダーの状態・ページトップ ---- */
+  var hd = document.getElementById('hd'), top = document.getElementById('pagetop'), ticking = false;
+  function onScroll(){
+    var y = window.scrollY;
+    hd.classList.toggle('is-stuck', y > 40);
+    top.classList.toggle('is-on', y > 600);
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ ticking = true; requestAnimationFrame(onScroll); }
+  }, {passive:true});
+  onScroll();
+
+  /* ---- ハンバーガー ---- */
+  var burger = document.getElementById('burger'), mnav = document.getElementById('mnav');
+  function setMenu(open){
+    burger.setAttribute('aria-expanded', open);
+    burger.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+    mnav.classList.toggle('is-open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  burger.addEventListener('click', function(){
+    setMenu(burger.getAttribute('aria-expanded') !== 'true');
+  });
+  mnav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ setMenu(false); });
+  });
+
+  /* ---- モーダル ---- */
+  var modal = document.getElementById('modal'), lastFocus = null;
+  function openModal(e){
+    lastFocus = e.currentTarget;
+    setMenu(false);
+    modal.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    modal.querySelector('.modal__list a').focus();
+  }
+  function closeModal(){
+    modal.classList.remove('is-open');
+    document.body.style.overflow = '';
+    lastFocus && lastFocus.focus();
+  }
+  document.querySelectorAll('[data-modal]').forEach(function(b){ b.addEventListener('click', openModal); });
+  modal.querySelectorAll('[data-close]').forEach(function(b){ b.addEventListener('click', closeModal); });
+  modal.querySelectorAll('.modal__list a').forEach(function(a){ a.addEventListener('click', closeModal); });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+    if(e.key === 'Tab' && modal.classList.contains('is-open')){
+      var f = modal.querySelectorAll('a,button');
+      var first = f[0], last = f[f.length - 1];
+      if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+      else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+    }
+  });
+
+  /* ---- スクロールで表示 ---- */
+  var targets = document.querySelectorAll('[data-rv]');
+  if(mq || !('IntersectionObserver' in window)){
+    targets.forEach(function(t){ t.classList.add('is-in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('is-in'); io.unobserve(en.target); }
+      });
+    }, {rootMargin:'0px 0px -12% 0px', threshold:.08});
+    targets.forEach(function(t){ io.observe(t); });
+  }
+})();
+</script>
+</body>
+</html>
