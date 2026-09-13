@@ -25,6 +25,16 @@ jobs:
           set -euo pipefail
           mkdir -p assets
           cat source/page.b64.1 source/page.b64.2 source/page.b64.3 source/page.b64.4 source/page.b64.5 | base64 -d | gzip -d > index.html
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text()
+          s = s.replace('object-fit:cover;object-position:32% 40%;', 'object-fit:contain;object-position:center;background:var(--cream);')
+          s = s.replace('animation:kenburns 22s ease-in-out infinite alternate', 'animation:none')
+          s = s.replace('width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)', 'width:100%;height:100%;object-fit:contain;object-position:center;background:var(--cream);transition:none')
+          s = s.replace('.gal figure:hover img{transform:scale(1.06)}', '.gal figure:hover img{transform:none}')
+          p.write_text(s)
+          PY
           declare -A src=(
             [il-boy-wave.png]='assets/illustration-learning.svg'
             [il-book-open.png]='assets/illustration-book.svg'
