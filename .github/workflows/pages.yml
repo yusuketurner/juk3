@@ -46,8 +46,9 @@ jobs:
             [il-girl-fist.png]='assets/illustration-pencil.svg'
           )
           for name in "${!src[@]}"; do
-            url="https://raw.githubusercontent.com/yusuketurner/juk/main/${src[$name]}"
-            curl -fsSL --retry 3 "$url" -o "assets/$name"
+            path="${src[$name]}"
+            encoded=$(python3 -c 'import urllib.parse,sys; print(urllib.parse.quote(sys.argv[1]))' "$path")
+            curl -fsSL --retry 3 "https://raw.githubusercontent.com/yusuketurner/juk/main/${encoded}" -o "assets/$name"
           done
           test -s index.html
           test "$(grep -oi '<img ' index.html | wc -l)" -eq 20
