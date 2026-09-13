@@ -19,42 +19,39 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Assemble exact supplied site
+      - name: Assemble supplied HTML and assets
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p assets
           cat source/page.b64.1 source/page.b64.2 source/page.b64.3 source/page.b64.4 source/page.b64.5 | base64 -d | gzip -d > index.html
-          assets=(
-            "il-boy-wave.png"
-            "il-book-open.png"
-            "photo-hero.jpg"
-            "il-girl-ruler.png"
-            "il-book-open.png"
-            "il-girl-cheer.png"
-            "photo-01.jpg"
-            "photo-02.jpg"
-            "photo-03.jpg"
-            "photo-04.jpg"
-            "photo-05.jpg"
-            "photo-06.jpg"
-            "il-course-juku.png"
-            "il-course-soro.png"
-            "il-course-eigo.png"
-            "photo-band.jpg"
-            "il-boy-wave.png"
-            "il-school.png"
-            "il-book-pencil.png"
-            "il-girl-fist.png"
-            "il-girl-ruler.png"
+          declare -A src=(
+            [il-boy-wave.png]='assets/illustration-highfive.svg'
+            [il-book-open.png]='assets/illustration-book.svg'
+            [photo-hero.jpg]='2oju7nIXRXYMj5EXMi5f2z-mTLPUeyx_sqi3_oCTzv20dyEluY5mAIaZ6GnfXAo4ZkonswZX54teIfTLYsmvnEYU8Tzldk9V6tSHA-HHB3TwSt53IvnfRZjSXMgpoGB90sYSODOHm_RZekqjH7ZH0GI32-0FEk0UFfgl0K0XTwcgPzQKRctrCWikqcsm1CVy.jpeg'
+            [il-girl-ruler.png]='assets/illustration-pencil.svg'
+            [il-girl-cheer.png]='assets/illustration-celebrate.svg'
+            [photo-01.jpg]='ChatGPT Image 2026年9月10日 21_29_30 (1).png'
+            [photo-02.jpg]='ChatGPT Image 2026年9月10日 21_29_31 (2).png'
+            [photo-03.jpg]='ChatGPT Image 2026年9月10日 21_31_27.png'
+            [photo-04.jpg]='ChatGPT Image 2026年9月10日 22_19_18.png'
+            [photo-05.jpg]='ChatGPT Image 2026年9月10日 22_22_24.png'
+            [photo-06.jpg]='ChatGPT Image 2026年9月10日 22_25_05.png'
+            [il-course-juku.png]='assets/illustration-learning.svg'
+            [il-course-soro.png]='assets/illustration-abacus.svg'
+            [il-course-eigo.png]='assets/illustration-english.svg'
+            [photo-band.jpg]='Gemini_Generated_Image_oov12zoov12zoov1.jpg'
+            [il-school.png]='assets/illustration-school.svg'
+            [il-book-pencil.png]='assets/illustration-pencil.svg'
+            [il-girl-fist.png]='assets/illustration-highfive.svg'
           )
-          for asset in "${assets[@]}"; do
-            curl -fsSL --retry 3 "https://raw.githubusercontent.com/yusuketurner/juk/main/assets/${asset}" -o "assets/${asset}"
+          for name in "${!src[@]}"; do
+            url="https://raw.githubusercontent.com/yusuketurner/juk/main/${src[$name]}"
+            curl -fsSL --retry 3 "$url" -o "assets/$name"
           done
-          test -f index.html
-          grep -q '<html' index.html
+          test -s index.html
           test "$(grep -oi '<img ' index.html | wc -l)" -eq 20
-          for asset in "${assets[@]}"; do test -s "assets/${asset}"; done
+          for name in "${!src[@]}"; do test -s "assets/$name"; done
           rm -rf source
           touch .nojekyll
       - name: Configure Pages
