@@ -19,11 +19,44 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Assemble site
+      - name: Assemble exact supplied site
+        shell: bash
         run: |
+          set -euo pipefail
+          mkdir -p assets
+          cat source/page.b64.1 source/page.b64.2 source/page.b64.3 source/page.b64.4 source/page.b64.5 | base64 -d | gzip -d > index.html
+          assets=(
+            "il-boy-wave.png"
+            "il-book-open.png"
+            "photo-hero.jpg"
+            "il-girl-ruler.png"
+            "il-book-open.png"
+            "il-girl-cheer.png"
+            "photo-01.jpg"
+            "photo-02.jpg"
+            "photo-03.jpg"
+            "photo-04.jpg"
+            "photo-05.jpg"
+            "photo-06.jpg"
+            "il-course-juku.png"
+            "il-course-soro.png"
+            "il-course-eigo.png"
+            "photo-band.jpg"
+            "il-boy-wave.png"
+            "il-school.png"
+            "il-book-pencil.png"
+            "il-girl-fist.png"
+            "il-girl-ruler.png"
+          )
+          for asset in "${assets[@]}"; do
+            curl -fsSL --retry 3 "https://raw.githubusercontent.com/yusuketurner/juk/main/assets/${asset}" -o "assets/${asset}"
+          done
           test -f index.html
-          test -f .nojekyll || touch .nojekyll
           grep -q '<html' index.html
+          test "$(grep -oi '<img ' index.html | wc -l)" -eq 20
+          for asset in "${assets[@]}"; do test -s "assets/${asset}"; done
+          rm -rf source
+          touch .nojekyll
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
