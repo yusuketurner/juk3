@@ -26,24 +26,24 @@ jobs:
           mkdir -p assets
           cat source/page.b64.1 source/page.b64.2 source/page.b64.3 source/page.b64.4 source/page.b64.5 | base64 -d | gzip -d > index.html
           declare -A src=(
-            [il-boy-wave.png]='assets/illustration-highfive.svg'
+            [il-boy-wave.png]='assets/illustration-learning.svg'
             [il-book-open.png]='assets/illustration-book.svg'
-            [photo-hero.jpg]='2oju7nIXRXYMj5EXMi5f2z-mTLPUeyx_sqi3_oCTzv20dyEluY5mAIaZ6GnfXAo4ZkonswZX54teIfTLYsmvnEYU8Tzldk9V6tSHA-HHB3TwSt53IvnfRZjSXMgpoGB90sYSODOHm_RZekqjH7ZH0GI32-0FEk0UFfgl0K0XTwcgPzQKRctrCWikqcsm1CVy.jpeg'
+            [photo-hero.jpg]='assets/2oju7nIXRXYMj5EXMi5f2z-mTLPUeyx_sqi3_oCTzv20dyEluY5mAIaZ6GnfXAo4ZkonswZX54teIfTLYsmvnEYU8Tzldk9V6tSHA-HHB3TwSt53IvnfRZjSXMgpoGB90sYSODOHm_RZekqjH7ZH0GI32-0FEk0UFfgl0K0XTwcgPzQKRctrCWikqcsm1CVy.jpeg'
             [il-girl-ruler.png]='assets/illustration-pencil.svg'
-            [il-girl-cheer.png]='assets/illustration-celebrate.svg'
-            [photo-01.jpg]='ChatGPT Image 2026年9月10日 21_29_30 (1).png'
-            [photo-02.jpg]='ChatGPT Image 2026年9月10日 21_29_31 (2).png'
-            [photo-03.jpg]='ChatGPT Image 2026年9月10日 21_31_27.png'
-            [photo-04.jpg]='ChatGPT Image 2026年9月10日 22_19_18.png'
-            [photo-05.jpg]='ChatGPT Image 2026年9月10日 22_22_24.png'
-            [photo-06.jpg]='ChatGPT Image 2026年9月10日 22_25_05.png'
+            [il-girl-cheer.png]='assets/illustration-learning.svg'
+            [photo-01.jpg]='assets/ChatGPT Image 2026年9月10日 21_29_30 (1).png'
+            [photo-02.jpg]='assets/ChatGPT Image 2026年9月10日 21_29_31 (2).png'
+            [photo-03.jpg]='assets/ChatGPT Image 2026年9月10日 21_31_27.png'
+            [photo-04.jpg]='assets/ChatGPT Image 2026年9月10日 22_19_18.png'
+            [photo-05.jpg]='assets/ChatGPT Image 2026年9月10日 22_22_24.png'
+            [photo-06.jpg]='assets/ChatGPT Image 2026年9月10日 22_25_05.png'
             [il-course-juku.png]='assets/illustration-learning.svg'
             [il-course-soro.png]='assets/illustration-abacus.svg'
             [il-course-eigo.png]='assets/illustration-english.svg'
-            [photo-band.jpg]='Gemini_Generated_Image_oov12zoov12zoov1.jpg'
+            [photo-band.jpg]='assets/Gemini_Generated_Image_oov12zoov12zoov1.jpg'
             [il-school.png]='assets/illustration-school.svg'
             [il-book-pencil.png]='assets/illustration-pencil.svg'
-            [il-girl-fist.png]='assets/illustration-highfive.svg'
+            [il-girl-fist.png]='assets/illustration-pencil.svg'
           )
           for name in "${!src[@]}"; do
             url="https://raw.githubusercontent.com/yusuketurner/juk/main/${src[$name]}"
