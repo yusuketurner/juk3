@@ -29,6 +29,28 @@ jobs:
           from pathlib import Path
           p = Path('index.html')
           s = p.read_text()
+          # Match every HTML image path to the actual file format that is deployed.
+          ext_map = {
+              'il-boy-wave.png':'il-boy-wave.svg',
+              'il-book-open.png':'il-book-open.svg',
+              'il-girl-ruler.png':'il-girl-ruler.svg',
+              'il-girl-cheer.png':'il-girl-cheer.svg',
+              'photo-01.jpg':'photo-01.png',
+              'photo-02.jpg':'photo-02.png',
+              'photo-03.jpg':'photo-03.png',
+              'photo-04.jpg':'photo-04.png',
+              'photo-05.jpg':'photo-05.png',
+              'photo-06.jpg':'photo-06.png',
+              'il-course-juku.png':'il-course-juku.svg',
+              'il-course-soro.png':'il-course-soro.svg',
+              'il-course-eigo.png':'il-course-eigo.svg',
+              'il-school.png':'il-school.svg',
+              'il-book-pencil.png':'il-book-pencil.svg',
+              'il-girl-fist.png':'il-girl-fist.svg',
+          }
+          for old, new in ext_map.items():
+              s = s.replace('assets/' + old, 'assets/' + new)
+          # Preserve the full supplied photos; do not crop them with object-fit:cover.
           s = s.replace('object-fit:cover;object-position:32% 40%;', 'object-fit:contain;object-position:center;background:var(--cream);')
           s = s.replace('animation:kenburns 22s ease-in-out infinite alternate', 'animation:none')
           s = s.replace('width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)', 'width:100%;height:100%;object-fit:contain;object-position:center;background:var(--cream);transition:none')
@@ -36,33 +58,47 @@ jobs:
           p.write_text(s)
           PY
           declare -A src=(
-            [il-boy-wave.png]='assets/illustration-learning.svg'
-            [il-book-open.png]='assets/illustration-book.svg'
+            [il-boy-wave.svg]='assets/illustration-learning.svg'
+            [il-book-open.svg]='assets/illustration-book.svg'
             [photo-hero.jpg]='assets/2oju7nIXRXYMj5EXMi5f2z-mTLPUeyx_sqi3_oCTzv20dyEluY5mAIaZ6GnfXAo4ZkonswZX54teIfTLYsmvnEYU8Tzldk9V6tSHA-HHB3TwSt53IvnfRZjSXMgpoGB90sYSODOHm_RZekqjH7ZH0GI32-0FEk0UFfgl0K0XTwcgPzQKRctrCWikqcsm1CVy.jpeg'
-            [il-girl-ruler.png]='assets/illustration-pencil.svg'
-            [il-girl-cheer.png]='assets/illustration-learning.svg'
-            [photo-01.jpg]='assets/ChatGPT Image 2026年9月10日 21_29_30 (1).png'
-            [photo-02.jpg]='assets/ChatGPT Image 2026年9月10日 21_29_31 (2).png'
-            [photo-03.jpg]='assets/ChatGPT Image 2026年9月10日 21_31_27.png'
-            [photo-04.jpg]='assets/ChatGPT Image 2026年9月10日 22_19_18.png'
-            [photo-05.jpg]='assets/ChatGPT Image 2026年9月10日 22_22_24.png'
-            [photo-06.jpg]='assets/ChatGPT Image 2026年9月10日 22_25_05.png'
-            [il-course-juku.png]='assets/illustration-learning.svg'
-            [il-course-soro.png]='assets/illustration-abacus.svg'
-            [il-course-eigo.png]='assets/illustration-english.svg'
+            [il-girl-ruler.svg]='assets/illustration-pencil.svg'
+            [il-girl-cheer.svg]='assets/illustration-learning.svg'
+            [photo-01.png]='assets/ChatGPT Image 2026年9月10日 21_29_30 (1).png'
+            [photo-02.png]='assets/ChatGPT Image 2026年9月10日 21_29_31 (2).png'
+            [photo-03.png]='assets/ChatGPT Image 2026年9月10日 21_31_27.png'
+            [photo-04.png]='assets/ChatGPT Image 2026年9月10日 22_19_18.png'
+            [photo-05.png]='assets/ChatGPT Image 2026年9月10日 22_22_24.png'
+            [photo-06.png]='assets/ChatGPT Image 2026年9月10日 22_25_05.png'
+            [il-course-juku.svg]='assets/illustration-learning.svg'
+            [il-course-soro.svg]='assets/illustration-abacus.svg'
+            [il-course-eigo.svg]='assets/illustration-english.svg'
             [photo-band.jpg]='assets/Gemini_Generated_Image_oov12zoov12zoov1.jpg'
-            [il-school.png]='assets/illustration-school.svg'
-            [il-book-pencil.png]='assets/illustration-pencil.svg'
-            [il-girl-fist.png]='assets/illustration-pencil.svg'
+            [il-school.svg]='assets/illustration-school.svg'
+            [il-book-pencil.svg]='assets/illustration-pencil.svg'
+            [il-girl-fist.svg]='assets/illustration-pencil.svg'
           )
           for name in "${!src[@]}"; do
             path="${src[$name]}"
             encoded=$(python3 -c 'import urllib.parse,sys; print(urllib.parse.quote(sys.argv[1]))' "$path")
-            curl -fsSL --retry 3 "https://raw.githubusercontent.com/yusuketurner/juk/main/${encoded}" -o "assets/$name"
+            curl -fL --retry 8 --retry-all-errors --retry-delay 2 "https://raw.githubusercontent.com/yusuketurner/juk/main/${encoded}" -o "assets/$name"
           done
           test -s index.html
           test "$(grep -oi '<img ' index.html | wc -l)" -eq 20
           for name in "${!src[@]}"; do test -s "assets/$name"; done
+          # Hard-fail if an asset's extension and actual image format disagree.
+          python3 - <<'PY'
+          from pathlib import Path
+          import imghdr
+          for p in Path('assets').iterdir():
+              ext = p.suffix.lower()
+              if ext in {'.jpg','.jpeg','.png'}:
+                  kind = imghdr.what(p)
+                  expected = 'jpeg' if ext in {'.jpg','.jpeg'} else 'png'
+                  if kind != expected:
+                      raise SystemExit(f'Image type mismatch: {p.name}: {kind} != {expected}')
+              elif ext == '.svg' and '<svg' not in p.read_text(errors='ignore')[:2000]:
+                  raise SystemExit(f'Invalid SVG: {p.name}')
+          PY
           rm -rf source
           touch .nojekyll
       - name: Configure Pages
